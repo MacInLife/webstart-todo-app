@@ -28,7 +28,6 @@ export default class TodoList extends Component {
   };
   renderTodo = (todo, index) => {
     // Don't forget the "key" property !!
-
     const content = `${index + 1}-${todo}`;
     return <Todo todo={content} key={`todo${index}`} />;
   };
