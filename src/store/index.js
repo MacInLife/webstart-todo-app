@@ -11,9 +11,14 @@ const persistConfig = {
   key: 'root',
   storage: AsyncStorage,
 };
+
+const addTaskMemory = store => next => action => {
+  console.log(action);
+  next(action);
+};
 // On liste ici les middleware dont on a besoin
 //
-const middlewares = [thunk];
+const middlewares = [thunk, addTaskMemory];
 // composeWithDevTools() permet le debuggage dans React Native Debugger
 //
 // composeWithDevTools() permet le debuggage dans React Native Debugger
