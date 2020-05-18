@@ -4,10 +4,10 @@ export const Types = {
   SET_TODOS: 'SUBMIT_TODO',
 };
 export const Actions = {
-  setTodos: results => ({
+  setTodos: todoTask => ({
     type: 'SUBMIT_TODO',
     payload: {
-      title: results,
+      title: todoTask,
     },
   }),
 };

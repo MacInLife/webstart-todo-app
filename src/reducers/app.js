@@ -1,10 +1,10 @@
 import {Types} from '../actions';
 
 export const actions = {
-  setTodos: results => ({
+  setTodos: todoTask => ({
     type: 'SUBMIT_TODO',
     payload: {
-      title: results,
+      title: todoTask,
     },
   }),
 };
@@ -14,7 +14,7 @@ export default (state = initialState, action) => {
     case Types.SUBMIT_TODO:
       return {
         ...state,
-        results: action.payload.results,
+        todos: action.payload.todoTask,
       };
     default:
       return state;
