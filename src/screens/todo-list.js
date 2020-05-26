@@ -66,17 +66,16 @@ export default class TodoList extends Component {
   }
 }
 
-const mapStateToProps = state => ({
-  todos: state.submitTodo,
-});
+const mapStateToProps = (state) => ({
+  todos: state.todos.todo,
+})
+const mapDispatchToProps = (dispatch) => ({
+  setTodos: (todos) => dispatch(Actions.SET_TODOS(todos))
+})
+export default connect(mapStateToProps,
+  mapDispatchToProps
+)(TodoList)
 
-const mapDispatchToProps = dispatch => ({
-  requestGetListings: () => dispatch(requestGetListings()),
-});
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps,
-)(TodoList);
 const styles = StyleSheet.create({
   scrollView: {
     flex: 1,
