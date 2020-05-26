@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {connect} from 'react-redux';
 import {
   ScrollView,
   View,
@@ -64,6 +65,18 @@ export default class TodoList extends Component {
     );
   }
 }
+
+const mapStateToProps = state => ({
+  todos: state.submitTodo,
+});
+
+const mapDispatchToProps = dispatch => ({
+  requestGetListings: () => dispatch(requestGetListings()),
+});
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(TodoList);
 const styles = StyleSheet.create({
   scrollView: {
     flex: 1,
