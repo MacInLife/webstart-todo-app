@@ -1,9 +1,9 @@
 export const Types = {
-  SET_TODOS: 'SUBMIT_TODO',
+  SetTodos: 'SUBMIT_TODO',
 };
 export const Actions = {
   setTodos: results => ({
-    type: Types.SET_TODOS,
+    type: Types.SetTodos,
     payload: results,
   }),
 };

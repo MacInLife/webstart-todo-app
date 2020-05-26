@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
+import {Actions} from '../actions';
 import {
   ScrollView,
   View,
@@ -16,7 +17,7 @@ const Status = {
   VISIBLE: 'visible',
 };
 
-export default class TodoList extends Component {
+class TodoList extends Component {
   // This is the initial state of my todolist
   state = {
     todos: [],
@@ -66,16 +67,6 @@ export default class TodoList extends Component {
   }
 }
 
-const mapStateToProps = (state) => ({
-  todos: state.todos.todo,
-})
-const mapDispatchToProps = (dispatch) => ({
-  setTodos: (todos) => dispatch(Actions.SET_TODOS(todos))
-})
-export default connect(mapStateToProps,
-  mapDispatchToProps
-)(TodoList)
-
 const styles = StyleSheet.create({
   scrollView: {
     flex: 1,
@@ -99,3 +90,14 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
   },
 });
+
+const mapStateToProps = state => ({
+  todos: state.todos.todo,
+});
+const mapDispatchToProps = dispatch => ({
+  setTodos: todos => dispatch(Actions.setTodos(todos)),
+});
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(TodoList);
